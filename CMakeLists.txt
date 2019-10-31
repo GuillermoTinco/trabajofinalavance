@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
-project(TRABAJOFINAL)
+project(Nacho456)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TRABAJOFINAL main.cpp; Editor.cpp)
+add_executable(Nacho456 main.cpp)

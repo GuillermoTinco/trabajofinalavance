@@ -1,19 +1,49 @@
-#include "Editor.h" // usando este explicitamente uso variables.h ya qu esta incluida en editor.h
-#include "funcmain.h"
-entero main() {
-    entero a=0;
-    cadena ubicac="C:\\Users\\HP\\ARCHIVOS\\prueba1.txt";
-    cout << "Ingrese la ubicación del archivo para editar lo deseado:" << "\n"; cin >> ubicac;
-    do{
-        EditorTexto Interfaz;
-        Interfaz.Dibujar(); //se encargará de hacer la interface sabiedno que a es 0
-        cout << "Ingrese opcion: "; cin >> a;// "a" es la opción que elegiremos
-        EditorTexto Opcion(a, ubicac); cout << endl; // el a si asigna y cambia el valor al private
-        funcionsui(Opcion, ubicac);
-        cout << endl; cout << endl;
-        //cout << "Ha elegido la opcion "<< Opcion.getOpcion()<<"..."<<endl;//verificando que se modifique del private
-    }
-    while (a==1 || a==2 || a==3 || a==4 || a==5 || a==6 || a==7 || a==8 || a==9 || a==10);
-    cout << "fin";
+#include <iostream>
+using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <string>
+#include <string.h>
+#include <fstream>
+#include <conio.h>
+
+typedef int entero;
+typedef string letras;
+typedef void nada;
+typedef bool tof;
+typedef float decimal;
+typedef char caracter;
+
+
+nada gotoxy(entero x, entero y){
+    HANDLE Manipulador;
+    COORD Coordenadas;
+    Manipulador = GetStdHandle(STD_OUTPUT_HANDLE);
+    Coordenadas.X = x;
+    Coordenadas.Y = y;
+    SetConsoleCursorPosition(Manipulador, Coordenadas);
+}
+
+nada Centrar_Texto(letras texto){
+entero size_texto = (texto);
+gotoxy(40-(size_texto /2), 0);
+printf("%s", texto);
+
+}
+
+nada Izquierda_Texto(letras texto){
+entero size_texto = strlen(texto);
+gotoxy(80 - size_texto, 0);
+printf("%s", texto);
+}
+
+nada Derecha_Texto(letras texto){
+gotoxy(0, 0);
+printf("%s", texto);
+}
+
+int main() {
     return 0;
+
 }
